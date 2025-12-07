@@ -2,7 +2,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.mohammedbaqer.rv2l'
+group = 'com.github.ulite-Amr.gradle-tooling'
 version = '8.9'
 
 def gradleToolingVersion = '8.9'
@@ -11,13 +11,13 @@ def baseUrl = "https://repo.gradle.org/gradle/libs-releases/org/gradle/gradle-to
 task downloadJars {
     doLast {
         mkdir 'build/libs'
-        
+
         ant.get(src: "${baseUrl}/gradle-tooling-api-${gradleToolingVersion}.jar",
                 dest: "build/libs/gradle-tooling-api-${gradleToolingVersion}.jar")
-        
+
         ant.get(src: "${baseUrl}/gradle-tooling-api-${gradleToolingVersion}-sources.jar",
                 dest: "build/libs/gradle-tooling-api-${gradleToolingVersion}-sources.jar")
-        
+
         ant.get(src: "${baseUrl}/gradle-tooling-api-${gradleToolingVersion}-javadoc.jar",
                 dest: "build/libs/gradle-tooling-api-${gradleToolingVersion}-javadoc.jar")
     }
@@ -39,7 +39,7 @@ publishing {
             groupId = project.group
             artifactId = 'gradle-tooling-api'
             version = project.version
-            
+
             artifact file("build/libs/gradle-tooling-api-${gradleToolingVersion}.jar")
             artifact file("build/libs/gradle-tooling-api-${gradleToolingVersion}-sources.jar"), {
                 classifier = 'sources'
@@ -47,31 +47,31 @@ publishing {
             artifact file("build/libs/gradle-tooling-api-${gradleToolingVersion}-javadoc.jar"), {
                 classifier = 'javadoc'
             }
-            
+
             pom {
-                name = 'Gradle Tooling API - Republished'
-                description = 'The Gradle Tooling API - Republished via JitPack'
-                url = 'https://github.com/AndroidIDE-Rv2Official/tom-gradle-tooling-api'
-                
+                name = 'AndroidIDE Gradle Tooling API - Republished'
+                description = 'The Gradle Tooling API republished for AndroidIDE by Ulite-Amr'
+                url = 'https://github.com/Ulite-Amr/gradle-tooling-api'
+
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
                         url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
-                
+
                 developers {
                     developer {
-                        id = 'AndroidIDE-Rv2Official'
-                        name = 'AndroidIDE-Rv2'
-                        url = 'https://github.com/AndroidIDE-Rv2Official'
+                        id = 'Ulite-Amr'
+                        name = 'Ulite-Amr'
+                        url = 'https://github.com/Ulite-Amr'
                     }
                 }
-                
+
                 scm {
-                    connection = 'scm:git:git://github.com/AndroidIDE-Rv2Official/tom-gradle-tooling-api.git'
-                    developerConnection = 'scm:git:ssh://github.com/AndroidIDE-Rv2Official/tom-gradle-tooling-api.git'
-                    url = 'https://github.com/AndroidIDE-Rv2Official/tom-gradle-tooling-api'
+                    connection = 'scm:git:git://github.com/Ulite-Amr/gradle-tooling-api.git'
+                    developerConnection = 'scm:git:ssh://github.com/Ulite-Amr/gradle-tooling-api.git'
+                    url = 'https://github.com/Ulite-Amr/gradle-tooling-api'
                 }
             }
         }
