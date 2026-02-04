@@ -3,9 +3,9 @@ plugins {
 }
 
 group = 'com.github.ulite-Amr.gradle-tooling'
-version = '8.9'
+version = '9.0'
 
-def gradleToolingVersion = '8.9'
+def gradleToolingVersion = '9.0'
 def baseUrl = "https://repo.gradle.org/gradle/libs-releases/org/gradle/gradle-tooling-api/${gradleToolingVersion}"
 
 task downloadJars {
